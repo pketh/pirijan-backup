@@ -1,0 +1,115 @@
+sans-serif = "Helvetica", Arial, Sans-serif
+primary-color = black
+link-color = blueviolet
+primary-background = white // #fbfcdb
+
+SMALL_WIDTH = 420px
+MEDIUM_WIDTH = 650px
+
+@font-face
+  font-family: frankfurter
+  font-style: bold
+  src: url('https://cdn.glitch.com/ba48b5f1-377a-42b0-80c9-5625dcaab9de%2Ffrankfurter.woff2?1502065048672')
+
+body
+  font-family: sans-serif
+  background-color: #c0bfbf
+
+a
+  color: link-color
+  &:hover
+    text-decoration: none
+
+header,
+main
+  z-index: 1
+
+// header
+//   z-index: 3
+//   position: absolute
+//   left: 50%
+//   .header-container
+//     position: relative
+//     left: -50%
+//   h1
+//     font-family: frankfurter
+//     margin: 0
+//     line-height: 32px
+//     text-align: center
+//   a
+//     color: primary-color
+//     text-decoration: none
+  
+// main
+//   margin-top: 15px
+
+// .item
+//   display: inline-block
+//   vertical-align: middle
+//   // z-index: 2
+//   margin: 1rem
+//   position: relative
+//   transition: .2s
+//   max-width: 300px
+//   // width: calc(25% - 2rem)
+//   min-width: 220px
+//   img
+//     width: 100%
+  // &:hover
+  //   transform: rotate3d(2, 2, 0, 40deg) translate3d(0,0,0)
+  //   -webkit-transform-style: preserve-3d
+
+// .moar
+//   margin-bottom: 3rem
+//   margin-top: 3rem
+//   .moar-img
+//     width: 200px
+//   .cover
+//     border-radius: 5px
+//     width: 160px 
+//     vertical-align: middle
+//     display: inline-block
+//   .theme-song
+//     vertical-align: middle
+//     display: inline-block
+//     margin-left: 1rem
+//     img
+//       border-radius: 5px
+//   ul
+//     padding-left: 1rem
+//   li
+//     list-style: none
+//     margin-bottom: 0.4rem
+//     a
+//       background-color: primary-background
+//       padding: 3px
+//       border-radius: 5px
+//       display: inline-block
+  
+// section,
+// footer
+//   margin-top: 20px
+
+footer
+  margin-bottom: 4rem
+  p
+    span
+      background-color: primary-background
+      padding: 3px
+      border-radius: 5px
+
+.glitch-icon
+  display: inline-block
+  width: 30px
+  vertical-align: middle
+  margin-right: 3px
+      
+canvas#background
+  position: fixed
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+  // z-index: -1
+  // transform: translateZ(-1000px)
+
