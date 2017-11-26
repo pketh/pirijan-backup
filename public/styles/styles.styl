@@ -1,10 +1,10 @@
 sans-serif = "Helvetica", Arial, Sans-serif
 primary-color = black
-link-color = blueviolet
-primary-background = white // #fbfcdb
+// link-color = blueviolet
+primary-background = #c0bfbf
 
-SMALL_WIDTH = 420px
-MEDIUM_WIDTH = 650px
+// SMALL_WIDTH = 420px
+// MEDIUM_WIDTH = 650px
 
 @font-face
   font-family: frankfurter
@@ -13,16 +13,37 @@ MEDIUM_WIDTH = 650px
 
 body
   font-family: sans-serif
-  background-color: #c0bfbf
+  background-color: primary-background
+  user-select: none
+  padding: 20px
 
-a
-  color: link-color
-  &:hover
-    text-decoration: none
+// header
+//   font-family: frankfurter
+  
+// a
+//   color: link-color
+//   &:hover
+//     text-decoration: underline
+//     color: red
+
+p
+  margin-top: 0
+//   max-width: 500px
+
+h2
+  display: inline-block
+  margin: 0
+  padding: 1rem 0
+  padding-bottom: 0.5rem
 
 header,
-main
-  z-index: 1
+main,
+section
+  max-width: 500px
+  
+// header,
+// main
+//   z-index: 1
 
 // header
 //   z-index: 3
@@ -90,19 +111,19 @@ main
 // footer
 //   margin-top: 20px
 
-footer
-  margin-bottom: 4rem
-  p
-    span
-      background-color: primary-background
-      padding: 3px
-      border-radius: 5px
+// footer
+//   margin-bottom: 4rem
+//   p
+//     span
+//       background-color: primary-background
+//       padding: 3px
+//       border-radius: 5px
 
-.glitch-icon
-  display: inline-block
-  width: 30px
-  vertical-align: middle
-  margin-right: 3px
+// .glitch-icon
+//   display: inline-block
+//   width: 30px
+//   vertical-align: middle
+//   margin-right: 3px
       
 canvas#background
   position: fixed
@@ -110,6 +131,5 @@ canvas#background
   width: 100%
   top: 0
   left: 0
-  // z-index: -1
+  z-index: -1
   // transform: translateZ(-1000px)
-
