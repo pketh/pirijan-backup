@@ -8,24 +8,17 @@ internal notes:
 
 nobi nobi boy style?
 
-max size to dots again (scaling is less linear (bigger = grows slower))
-
-splatoon, multiplayer, 
-come in and get a color, then you spray that initial/cycling color
-other ppl spray their own color
-all users see the same canvas cropped to screen size (playback diffs, reset if diff count becomes too big)
+splatoon, multiplayer
+other user drawing x,y and size, get broadcast to all clients and drawn (w random color assigned to user on end client)
+- websockets 
+  send splatter: x, y, size, color
 
 
+list users/colors in bottom corner [ :p ]
 
-https://www.youtube.com/watch?v=RdP347837Qg&app=desktop
+- BUG: resizing /crop (css canvas area = greater than viewport by % + set canvas size by the same % greater than viewport)
 
-websockets
 
-abstraction for communicating
-
-user sees otehr currently connected player avatars (w initial/current color)
-
-draw on top of art photos / photos change each day? a communal grafitti vibe / jet set radio
 
        ＜⌒／ヽ-、_＿
     ／＜_/＿＿＿＿／

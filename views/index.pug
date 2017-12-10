@@ -12,45 +12,56 @@ head
 body 
   header
     h1 Please make it simple, radical, and beautiful.
-    p I believe that the tools we make should help people express themselves in fun, surprising ways.
-    // p I studied biology, then I was a construction worker, then an almost architect. Now I do whatever this is.
+    p I studied biology, then I was a construction worker, then an almost architect. Now I make tools that help people express themselves in fun, surprising ways on the web.
     p 🗽 In NYC
-    button hi@pketh.org
-    p message me
+    
+  section.cta
+    a(href="mailto:hi@pketh.org?subject=Hello 👋")
+      button hi@pketh.org
 
   main
-    article
-      a(href="#")
-        // [glitch fish night]
+    article.glitch
+      a(href="https://glitch.com")
         h2 Glitch
-      p I draw, design and build the interface for Glitch. It's a friendly, opinionated and expressive place to build full web apps                     
-    article
-      //[frog logo]
-      a(href="#")
+        img(alt="glitch fish" src="https://cdn.glitch.com/5a4a5a24-a349-4dd9-931d-c81392444195%2Flogo-night.svg?1512925903787")
+      p I draw, design and build the interface for a friendly and opinionated place to express yourself on the web.
+      
+    article.frog-feels
+      a(href="http://frogfeels.com")
         h2 Frog Feels
-      p Let's draw awkward feelings together
-    article
-      // [smoking cloud from site]
-      a(href="#soundcloud")
-        h2 🎹 Good Goods
-      p Me and Michelle design the goodest goods for you and your family
-    article
-      a(href="#")
-        h2 pketh.org
-      p I write about the craft and challenges of making good software
-    //article
+        img(alt="frogfeels frog" src="https://cdn.glitch.com/5a4a5a24-a349-4dd9-931d-c81392444195%2Ffrogfeels.png?1512925942088")
+      p Let's draw awkward feelings together.
+      
+    article.good-goods
+      a(href="http://goodgoods.biz")
+        h2 Good Goods
+        img(alt="hand holding mug" src="https://cdn.glitch.com/ba48b5f1-377a-42b0-80c9-5625dcaab9de%2Fmug-hand.svg?1504132368029")
+      p
+        a(href="https://twitter.com/mjbearheart")= "Michelle"
+        span= " "
+        span and I design the goodest goods for you and your family. 
+        br
+        a(href="https://itunes.apple.com/us/podcast/good-goods/id1217665170?mt=2") (itunes)
+        span= " "
+        a(href="https://soundcloud.com/good-goods") (soundcloud)
+
+    article.blog
+      a(href="http://pketh.org")
+        // img(alt="writing" src="https://cdn.glitch.com/5a4a5a24-a349-4dd9-931d-c81392444195%2Fblog.png?1512927654335")
+        // img(src="https://cdn.glitch.com/5a4a5a24-a349-4dd9-931d-c81392444195%2Fblog-circle.svg?1512927970820")
+        h2 φ( °-°)/
+      p Writing about the craft and challenges of making nice software.
+
+    //arcticle
     //  a(href="#")
-    //    h2 twitter
-    
-    section
-      p save ur art->tweet
-    
-    footer
-      ul
-        li
-          a(href="#") View Source
-        li hi@pketh.org
-        li @pketh
+    //    h2 Weather Jobs
+    //  p A Mac menubar app with weather info for surfers, bikers, moonwatchers and humans. Fully native/Swift.
+
+  footer
+    p
+      a(href="https://glitch.com/edit/#!/pirijan") View Source 🎏
+    p
+      a(href="https://twitter.com/pketh") Twitter
         
           
     
@@ -58,4 +69,5 @@ body
 
 script(src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
 script(src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
 script(src="/scripts/index.js")

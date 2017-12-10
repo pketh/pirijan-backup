@@ -1,5 +1,7 @@
 express = require 'express'
 app = express()
+server = require('http').Server(app)
+io = require('socket.io')(server)
 coffeeMiddleware = require 'coffee-middleware'
 engines = require 'consolidate'
 bodyParser = require 'body-parser'
@@ -7,16 +9,6 @@ stylish = require 'stylish'
 autoprefixer = require 'autoprefixer-stylus'
 
 PORT = process.env.PORT
-
-# ENVIRONMENT = process.env.ENVIRONMENT
-# production = undefined
-# if ENVIRONMENT is 'production'
-#   production = true
-
-# PODCAST = 
-#   title: 'Good Goods'
-#   soundcloud: 'https://soundcloud.com/good-goods'
-#   itunes: 'https://itunes.apple.com/us/podcast/good-goods/id1217665170?mt=2'
 
 app.use(express.static('public'))
 
@@ -45,12 +37,18 @@ app.use stylish
     else
       console.log "#{filename} compiled to css"
 
-app.listen PORT, ->
+server.listen PORT, ->
   console.log "Your app is running on #{PORT}"
+
+io.on 'connection', (socket) ->
+  socket.on 'broadcastSplatter', (data) ->
+    socket.broadcast.emit('drawRemoteSplatter', data)
+
+  socket.on 'disconnect', (data) ->
+    socket.broadcast.emit('userDisconnected', data)
+
 
 # ROUTES
 
 app.get '/', (request, response) ->
-  response.render 'index' #,
-    # title: PODCAST.title
-    # production: production
+  response.render 'index'

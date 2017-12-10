@@ -1,130 +1,72 @@
 sans-serif = "Helvetica", Arial, Sans-serif
 primary-color = black
-// link-color = blueviolet
 primary-background = #c0bfbf
 
-// SMALL_WIDTH = 420px
-// MEDIUM_WIDTH = 650px
-
-@font-face
-  font-family: frankfurter
-  font-style: bold
-  src: url('https://cdn.glitch.com/ba48b5f1-377a-42b0-80c9-5625dcaab9de%2Ffrankfurter.woff2?1502065048672')
+// @font-face
+//   font-family: frankfurter
+//   font-style: bold
+//   src: url('https://cdn.glitch.com/ba48b5f1-377a-42b0-80c9-5625dcaab9de%2Ffrankfurter.woff2?1502065048672')
 
 body
   font-family: sans-serif
   background-color: primary-background
   user-select: none
-  padding: 20px
+  padding: 5%
 
-// header
-//   font-family: frankfurter
-  
-// a
-//   color: link-color
-//   &:hover
-//     text-decoration: underline
-//     color: red
+a
+  display: inline-block
+  text-decoration: none
+  color: primary-color
+  &:hover
+    text-decoration: underline
 
 p
-  margin-top: 0
-//   max-width: 500px
+  max-width: 525px
+  line-height: 1.2rem
+  a
+    text-decoration: underline
+    &:hover
+      text-decoration: none
 
 h2
-  display: inline-block
+  display: inline
   margin: 0
-  padding: 1rem 0
-  padding-bottom: 0.5rem
 
-header,
-main,
-section
-  max-width: 500px
+button
+  background: transparent
+  font-size: 16px
+  border: 2px solid primary-color
+  border-radius: 5px
+  padding: 6px 8px
+  cursor: pointer
+  box-shadow: 2px 2px primary-color
+  &:hover
+    background: white
+  &:active
+    color: primary-color
+    box-shadow: none
   
-// header,
-// main
-//   z-index: 1
-
-// header
-//   z-index: 3
-//   position: absolute
-//   left: 50%
-//   .header-container
-//     position: relative
-//     left: -50%
-//   h1
-//     font-family: frankfurter
-//     margin: 0
-//     line-height: 32px
-//     text-align: center
-//   a
-//     color: primary-color
-//     text-decoration: none
+main
+  margin-top: 1rem
   
-// main
-//   margin-top: 15px
+article
+  margin-top: 2rem
+  p
+    margin-top: 0.5rem
+  img
+    height: 30px
+    vertical-align: -7px
+    margin-left: 0.5rem
 
-// .item
-//   display: inline-block
-//   vertical-align: middle
-//   // z-index: 2
-//   margin: 1rem
-//   position: relative
-//   transition: .2s
-//   max-width: 300px
-//   // width: calc(25% - 2rem)
-//   min-width: 220px
-//   img
-//     width: 100%
-  // &:hover
-  //   transform: rotate3d(2, 2, 0, 40deg) translate3d(0,0,0)
-  //   -webkit-transform-style: preserve-3d
-
-// .moar
-//   margin-bottom: 3rem
-//   margin-top: 3rem
-//   .moar-img
-//     width: 200px
-//   .cover
-//     border-radius: 5px
-//     width: 160px 
-//     vertical-align: middle
-//     display: inline-block
-//   .theme-song
-//     vertical-align: middle
-//     display: inline-block
-//     margin-left: 1rem
-//     img
-//       border-radius: 5px
-//   ul
-//     padding-left: 1rem
-//   li
-//     list-style: none
-//     margin-bottom: 0.4rem
-//     a
-//       background-color: primary-background
-//       padding: 3px
-//       border-radius: 5px
-//       display: inline-block
-  
-// section,
-// footer
-//   margin-top: 20px
-
-// footer
-//   margin-bottom: 4rem
-//   p
-//     span
-//       background-color: primary-background
-//       padding: 3px
-//       border-radius: 5px
-
-// .glitch-icon
-//   display: inline-block
-//   width: 30px
-//   vertical-align: middle
-//   margin-right: 3px
-      
+// .glitch
+//   > a
+//     background-color: #fdff9e
+    
+footer
+  border-top: 1px solid grey
+  margin-top: 2.5rem
+  padding-top: 1rem
+    
 canvas#background
   position: fixed
   height: 100%

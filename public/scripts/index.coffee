@@ -1,9 +1,16 @@
-# PALETTE = ['fuchsia', 'blue', 'cyan', 'red', 'yellow', 'lime']
-# PALETTE = ['plum', 'cyan', 'pink']
+socket = io()
+socket.on 'newUserConnected', (data) ->
+  console.log 'user', data.color
+
+socket.on 'drawRemoteSplatter', (data) ->
+  addSplatter data.x, data.y, data.size, data.color
+
+clientColor = randomColor({luminosity: 'light'})
 palette = randomColor({luminosity: 'light', count: 3});
 canvas = undefined
 context = undefined
-windowWidth = undefined
+# windowWidth = window.innerWidth
+# windowHeight = window.innerHeight
 mouseDown = undefined
 currentMousePosition = 
   x: undefined
@@ -13,85 +20,96 @@ consecutiveSplatters = 1
 MAX_CONSECUTIVE_SPLATTERS = 20
 consecutiveRandomSplatters = 1
 defaultSize = 50
+# oldCanvas = undefined
+canvasImage = undefined
+# splatterHistory = []
 
 window.onload = ->
-  windowWidth = window.innerWidth
   canvas = document.getElementById('background')
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
   context = canvas.getContext('2d')
 
+window.onresize = -> #? playback changes w history instead of scaling
+#   console.log context
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+  # context = canvas.getContext('2d')
+  context.clearRect(0,0, window.innerWidth, window.innerHeight)
+#   splatterHistory.forEach ({x, y, size, color}) ->
+#     addSplatter x, y, size, color
+  # image = new Image()
+  # image.src = canvasImage
+  console.log canvasImage
+  context.putImageData(canvasImage, 0, 0)
+
 window.onmousedown = ->
-  consecutiveSplatters = 1
-  consecutiveRandomSplatters = 1
-  mouseDown = true
-  
+  startDragging()  
+
 window.onmouseup = ->
-  mouseDown = false
+  stopDragging()
 
-window.onmousemove = ->
-  currentMousePosition = 
-    x: event.clientX
-    y: event.clientY
-
-
-
-
+window.onmousemove = (event) ->
+  drag event
+      
 window.ontouchstart = ->
-  # console.log 'touchstart', event
-  consecutiveSplatters = 1
-  consecutiveRandomSplatters = 1
-  mouseDown = true
+  startDragging()  
   
 window.ontouchend = ->
-  # console.log 'touchend'
-  mouseDown = false
+  stopDragging()
   
 window.ontouchmove = (event) ->
-  # console.log 'touchmove', event
-  currentMousePosition = 
-    x: event.touches[0].clientX
-    y: event.touches[0].clientY
-
-    
+  drag event
     
 window.setInterval ->
   addRandomSplatter()
 , 1500
 
-
-window.onresize = -> #?
-  console.log 'onresize'
-  if window.innerWidth != windowWidth
-    windowWidth = window.innerWidth
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight + 20
-    context = canvas.getContext('2d')
-
-
 window.setInterval ->
-  # console.log 'yo'
-  color = 'cyan' # 🔥
-  # color = randomColor()
-    # luminosity: 'light'
+  color = 'cyan'
   if prevMousePosition and mouseDown and consecutiveSplatters < MAX_CONSECUTIVE_SPLATTERS
     consecutiveSplatters += 1
   size = Math.round defaultSize * (consecutiveSplatters * 0.1)
   prevMousePosition = currentMousePosition
-  # console.log 'moustdown', mouseDown
   if mouseDown
     addSplatter currentMousePosition.x, currentMousePosition.y, size, color
+    socket.emit 'broadcastSplatter',
+      x: currentMousePosition.x
+      y: currentMousePosition.y
+      size: size
+      color: clientColor
 , 25
-    
+
+startDragging = ->
+  consecutiveSplatters = 1
+  consecutiveRandomSplatters = 1
+  mouseDown = true
+
+drag = (event) ->
+  if event.touches
+    currentMousePosition = 
+      x: event.touches[0].clientX
+      y: event.touches[0].clientY
+  else
+    currentMousePosition = 
+      x: event.clientX
+      y: event.clientY
+
+stopDragging = ->
+  mouseDown = false
+
 addSplatter = (x, y, size, color) ->
   if x and y
     color = color or _.sample palette
     size = size or defaultSize
+    # console.log splatterHistory
+    # splatterHistory.push {x, y, size, color}
     context.beginPath()
     context.arc(x, y, size, 0, 2 * Math.PI)
     context.closePath()
     context.fillStyle = color
     context.fill()
+    canvasImage = context.getImageData(0, 0, window.innerWidth, window.innerHeight)
 
 addRandomSplatter = ->
   maxX = window.innerWidth
