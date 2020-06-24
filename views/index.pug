@@ -1,0 +1,65 @@
+head
+  title Wonder Yarn
+  meta(name="description" content="Pirijan's website, nbd")
+  link(id="favicon" rel="icon" href="https://glitch.com/favicon.ico" type="image/x-icon")
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  link(rel="stylesheet" href="/styles.css")
+
+body
+  .brush-options
+    .palette
+      button.color
+      button.color
+      button.color
+      button.color
+      button.color
+      button#new-palette.color-tool.new-palette
+        img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fshuffle.svg?1543323058646")      
+      details#previous-colors
+        summary
+          .button.color-tool.previous-colors
+            img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Frepeat.svg?1543323058599")
+        .pop-over
+          div Previous Colors
+          .colors
+    .size
+      input(type="range" min="5" max="50" value="15")#size-slider.slider
+      span.size-value#size-value 15
+  
+  .brushes
+    .shapes
+      button.active#circle-shape
+        img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fcircles.svg?1532708373728")
+      button#tree-shape
+        img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Ftree.svg?1532708373867")
+
+    .tools
+      button yo
+      button lo
+        
+  footer
+    .undo-redo
+      button.undo#undo
+        img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fundo.svg?1543341985809")
+      button.redo#redo
+        img(src="https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fredo.svg?1543341985701")
+
+    details.about
+      summary
+        .button#invite-friends
+          span#count 1
+          img.friends(src="https://cdn.glitch.com/5a4a5a24-a349-4dd9-931d-c81392444195%2Fsmile.svg?1512941305801")
+      .pop-over
+        span Everyone viewing this page can draw together. Share the url with friends, or open it up in a new tab
+        input#url(value='http://pirijan.com' contenteditable='true')
+        button#copy-url Copy Url
+
+
+  canvas#background
+
+script(src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js")
+script(src="/client.js")
