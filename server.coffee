@@ -7,6 +7,7 @@ engines = require 'consolidate'
 bodyParser = require 'body-parser'
 stylish = require 'stylish'
 autoprefixer = require 'autoprefixer-stylus'
+totalUsers = 0
 
 PORT = process.env.PORT
 
@@ -40,12 +41,19 @@ app.use stylish
 server.listen PORT, ->
   console.log "Your app is running on #{PORT}"
 
+
+# socket instructions
+  
 io.on 'connection', (socket) ->
-  socket.on 'broadcastSplatter', (data) ->
-    socket.broadcast.emit('drawRemoteSplatter', data)
+  totalUsers += 1
+  socket.broadcast.emit('newUserConnected', totalUsers)
+  
+  socket.on 'broadcastShape', (data) ->
+    socket.broadcast.emit('drawRemoteShape', data, totalUsers)
 
   socket.on 'disconnect', (data) ->
-    socket.broadcast.emit('userDisconnected', data)
+    totalUsers -= 1
+    socket.broadcast.emit('userDisconnected', data, totalUsers)
 
 
 # ROUTES

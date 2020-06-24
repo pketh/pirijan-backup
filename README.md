@@ -1,34 +1,17 @@
-# ༼ つ ◕_◕ ༽つ 
+# Pirijan ノ●
 
-# animation tests
+[http://pirijan.com](http://pirijan.com)
 
-༼ つ ◕_◕ ༽つ readme coming later
+![screenshot](https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2F17057756824579134046.png?1532614071976)
 
-internal notes:
+👀 Cool stuff I made. Splatter paint all over it with connected friends
 
-nobi nobi boy style?
+    ༼ つ ◕_◕ ༽つ 
+    Built with websockets, coffeescript, pug, stylus
 
-splatoon, multiplayer
-other user drawing x,y and size, get broadcast to all clients and drawn (w random color assigned to user on end client)
-- websockets 
-  send splatter: x, y, size, color
+## What's new
 
-
-list users/colors in bottom corner [ :p ]
-
-- BUG: resizing /crop (css canvas area = greater than viewport by % + set canvas size by the same % greater than viewport)
-
-
-
-       ＜⌒／ヽ-、_＿
-    ／＜_/＿＿＿＿／
-    ￣￣￣￣￣￣￣
-               ∧_∧
-          （・o・）"2017?”
-         ＿|　⊃／(＿＿_
-    ／　└-(＿＿＿_／
-    ￣￣￣￣￣￣￣
-
-       ＜⌒／ヽ-、_＿
-    ／＜_/＿＿＿＿／
-    ￣￣￣￣￣￣￣
+- You can change colors, and see what the next color is gonna be
+- Draw with circles, or stamp out some trees
+- The color you draw with is now the same color you'll be broadcasting to others
+- New design with less words

@@ -1,0 +1,246 @@
+sans-serif = "Helvetica", Arial, Sans-serif
+// is-serif = Courier, Menlo, serif
+primary-color = black
+primary-background = white
+link-background = cyan 
+secondary-color = #e7e7e7
+tertiary-color = grey
+
+// @font-face 
+//   font-family: haptik
+//   src: url(https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fgt-haptik-trial-black-rotalic-webfont.woff2?1532536635191)
+
+*
+  box-sizing: border-box
+  
+body
+  // font-family: haptik
+  background-color: primary-background
+  user-select: none
+  padding: 0
+  margin: 0
+  overflow-x: hidden 
+  font-family: sans-serif
+  // background-image: url('https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fbk.png?1543336574855')
+
+a
+  display: inline-block
+  color: primary-color
+  &:hover
+    text-decoration: none
+    background-color: link-background
+
+button,
+.button
+  display: inline-block
+  background-color: primary-background
+  font-family: sans-serif
+  font-size: 16px
+  border: 2px solid primary-color
+  border-radius: 5px
+  padding: 4px 6px
+  cursor: pointer
+  box-shadow: 2px 2px primary-color
+  vertical-align: middle
+  &:active,
+    color: primary-color
+    box-shadow: none
+  &:hover
+  &.active
+    color: primary-color
+    background-color: secondary-color
+  &.copied
+    background-color: lime !important
+    
+header
+  width: 100%
+  overflow: hidden
+  h1
+    transform: rotate(10deg)
+    color: title-color
+    font-size: 5rem    
+    max-width: 80%
+    margin-left: 5%
+    margin-top: 20%
+    margin-bottom: 10%
+    @media(max-width: 330px)
+      font-size: 4.5rem
+
+li
+  padding-bottom: .5rem
+
+main
+  padding-bottom: 5rem
+  font-family: is-serif
+  margin-left: 5%
+
+.brush-options,
+.brushes
+  position: absolute
+  top: 3% 
+  right: 3%
+  z-index: 2
+
+.brush-options 
+  right: calc(3% + 44px)
+
+img.friends
+  padding-left: 5px
+  vertical-align: middle
+
+input
+  padding: 2px 5px
+  border: 0px
+  margin-top: 12px
+  margin-bottom: 6px
+  border-radius: 0
+  font-size: 16px
+  max-width: 100%
+
+details
+  position: relative
+  display: inline-block
+  list-style: none
+  summary::-webkit-details-marker
+    display: none
+  &[open]
+    button,
+    .button
+      background-color: secondary-color
+  #count
+    pointer-events: none 
+  .pop-over
+    font-family: sans-serif
+    position: absolute
+    background-color: secondary-color
+    width: 200px
+    right: 8px
+    top: 34px
+    border-radius: 5px
+    padding: 12px
+    button
+      background-color: primary-background 
+      &:hover
+        background-color: secondary-color 
+
+footer
+  position: fixed
+  bottom: 3%
+  right: 3%
+  z-index: 2
+  // .about
+  //   margin-right: 10px
+
+  .undo-redo
+    display: inline-block
+    margin-right: 10px
+    button
+      width: 30px
+      border-radius: 10px
+      // img
+      //   padding-left: 2px
+      //   padding-right: 2px 
+      &:first-child
+        border-top-right-radius: 0
+        border-bottom-right-radius: 0
+        margin-right: -2px
+      &:last-child
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+        
+      
+  // button
+  //   &:last-child
+  //     margin-right: 0
+
+canvas#background
+  position: fixed
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+
+.background-image
+  background-image: url('https://cdn.glitch.com/88d7d577-6973-4d76-9beb-1cd779f2efd5%2Fbackground.svg?1532616622914')
+  background-size: contain
+  background-position: right center
+  height: 100%
+  width: 100%
+  position: fixed
+  top: 0
+  background-repeat: no-repeat
+  pointer-events: none
+  z-index: -1
+
+.palette
+  margin-right: 6px
+  button,
+  .button
+    border-radius: 100%
+    margin-top: 6px
+    height: 26px
+    width: 26px
+    transition: 0.2 all
+    margin-right: 5px
+  .selected 
+    height: 32px
+    width: 32px
+    box-shadow: 0
+  
+  .color-tool
+    width: 35px
+    border-radius: 10px
+  .new-palette
+    img
+      margin-top: -1px
+
+.shapes,
+.tools
+  margin-top: 12px
+  // width: 53px
+  margin-left: auto
+  button,
+  .button
+    width: 44px
+    display: block
+    text-align: center
+    &:first-child
+      border-bottom-left-radius: 0
+      border-bottom-right-radius: 0 
+      margin-top: -3px
+      padding-top: 5px
+      margin-bottom: -4px
+    &:last-child
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+
+.about
+  .pop-over
+    top: initial
+    bottom: 30px
+
+.size
+  .size-value
+    margin-left: 2px
+
+input.slider
+  appearance: none
+  padding: 0
+  margin: 0
+  margin-top: 12px
+  border-radius: 5px
+  height: 10px
+  cursor: pointer
+  border: 2px solid primary-color
+  background: transparent
+  &::-webkit-slider-thumb
+    appearance: none
+    width: 15px
+    height: 15px
+    border-radius: 100%
+    border: 2px solid primary-color
+    background: primary-background
+    box-shadow: 1px 1px primary-color
+  &:hover
+    &::-webkit-slider-thumb
+      background: secondary-color
